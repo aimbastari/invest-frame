@@ -1,0 +1,53 @@
+<h3>Quant Strategies</h3>
+<div class="example-container mat-elevation-z8">
+    <div class="example-header">
+      <mat-form-field>
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+      </mat-form-field>
+    </div>
+  
+    <table mat-table #table [dataSource]="dataSource">
+  
+      <!-- Position Column -->
+      <ng-container matColumnDef="position">
+        <th mat-header-cell *matHeaderCellDef> No. </th>
+        <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+      </ng-container>
+  
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+  
+      <!-- Performance Column -->
+      <ng-container matColumnDef="performance">
+        <th mat-header-cell *matHeaderCellDef> Performance </th>
+        <td mat-cell *matCellDef="let element"> {{element.performance}} </td>
+      </ng-container>
+
+      <!-- Datasource Column -->
+      <ng-container matColumnDef="datasource">
+            <th mat-header-cell *matHeaderCellDef> datasource </th>
+            <td mat-cell *matCellDef="let element"> {{element.datasource}} </td>
+      </ng-container>
+
+    <!-- Code Column -->
+    <ng-container matColumnDef="code">
+        <th mat-header-cell *matHeaderCellDef> Code </th>
+        <td mat-cell *matCellDef="let element"> {{element.code}} </td>
+    </ng-container>
+
+          
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="symbol">
+        <th mat-header-cell *matHeaderCellDef> Symbol </th>
+        <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+
+  <a mat-raised-button routerLink="/quant">Add Strategy</a>
