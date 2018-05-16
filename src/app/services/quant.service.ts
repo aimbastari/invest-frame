@@ -21,8 +21,29 @@ export class QuantService {
       );
   }
   
+  create(resource){
+    return this.http.post<Quant>(this.url, resource)
+      .pipe(
+        catchError(this.handleError)        
+      )    
+  }
 
-  
+  update(resource){
+    return this.http.put<Quant>(this.url, resource)
+      .pipe(
+        catchError(this.handleError)        
+      )    
+  }
+
+  delete(id: number){
+    const deleteUrl = `${this.url}/${id}`
+
+    return this.http.delete<Quant>(deleteUrl)
+      .pipe(
+        catchError(this.handleError)        
+      )    
+  }
+
 
 
   private handleError(error: HttpErrorResponse) {
