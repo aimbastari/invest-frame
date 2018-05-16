@@ -12,7 +12,7 @@ export class QuantService {
 
   constructor(private http: HttpClient) { }
     
-  url = 'https://jsonplaceholder.typicode.com/posts1';
+  url = 'https://jsonplaceholder.typicode.com/posts';
 
   getAll(){
     return this.http.get<Quant>(this.url)    
