@@ -15,6 +15,9 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { PageNotfoundComponent } from './page-notfound/page-notfound.component';
 
 import { RouterModule, Routes } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+import { QuantService } from './services/quant.service'; 
+
 
 const appRoutes: Routes = [
   { path: 'quant-list', component: QuantComponent },
@@ -43,13 +46,16 @@ const appRoutes: Routes = [
     MatFormFieldModule,
     MatInputModule,
     MatGridListModule,
+    HttpClientModule,
 
     RouterModule.forRoot(
       appRoutes,
-      { enableTracing: true } // <-- debugging purposes only
+      { enableTracing: false } // <-- debugging purposes only
     )
   ],
-  providers: [],
+  providers: [
+    QuantService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

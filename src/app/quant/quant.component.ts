@@ -1,14 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { MatButtonModule, MatCardModule  } from '@angular/material';
 import {MatTableDataSource} from '@angular/material';
-
+import { QuantService } from '../services/quant.service';
+import {Quant} from './quant-interface';
 
 @Component({
   selector: 'app-quant',
   templateUrl: './quant.component.html',
   styleUrls: ['./quant.component.css']
 })
-export class QuantComponent{
+export class QuantComponent implements OnInit{
+
+  constructor(private quantService: QuantService){}
 
   displayedColumns = ['position', 'name', 'performance', 'datasource', 'code', 'symbol'];
   dataSource = new MatTableDataSource(ELEMENT_DATA);
@@ -17,6 +20,16 @@ export class QuantComponent{
     filterValue = filterValue.trim(); // Remove whitespace
     filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
     this.dataSource.filter = filterValue;
+  }
+
+  ngOnInit(){
+    //Call the quant service using Observables
+    this.quantService.getAll()
+      .subscribe(
+        (data: Quant) => console.log(data),
+        error => alert(error)
+      )
+
   }
 
 }
