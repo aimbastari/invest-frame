@@ -16,7 +16,7 @@ export interface Quant {
 export interface QuantFirebase {
   id: number;
   userId: number;
-  title: string;
+  name: string;
   code: string;
   language: string;
   dataProvider: string;

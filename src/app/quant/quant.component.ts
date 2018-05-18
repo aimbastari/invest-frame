@@ -1,8 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { MatButtonModule, MatCardModule  } from '@angular/material';
-import {MatTableDataSource} from '@angular/material';
+import { MatTableDataSource } from '@angular/material';
 import { QuantService } from '../services/quant.service';
-import {Quant} from './quant-interface';
+import { Quant } from './quant-interface';
+
+import { AngularFireDatabase } from 'angularfire2/database';
+
+
 
 @Component({
   selector: 'app-quant',
@@ -11,7 +15,9 @@ import {Quant} from './quant-interface';
 })
 export class QuantComponent implements OnInit{
 
-  constructor(private quantService: QuantService){}
+  strategies: any[];
+
+  constructor(private quantService: QuantService, private db: AngularFireDatabase){}
 
   displayedColumns = ['position', 'name', 'performance', 'datasource', 'code', 'symbol'];
   dataSource = new MatTableDataSource(ELEMENT_DATA);
@@ -23,12 +29,17 @@ export class QuantComponent implements OnInit{
   }
 
   ngOnInit(){
+/*    
     //Call the quant service using Observables
     this.quantService.getAll()
       .subscribe(
         (data: Quant) => console.log(data),
         error => alert(error)
       )
+*/
+    this.db.list('/strategies')
+    
+
 
   }
 

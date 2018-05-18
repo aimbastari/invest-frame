@@ -1,5 +1,9 @@
+import { environment } from './../environments/environment' 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule} from 'angularfire2/database';
+
 
 import { AppComponent } from './app.component';
 import { QuantComponent } from './quant/quant.component';
@@ -17,6 +21,7 @@ import { PageNotfoundComponent } from './page-notfound/page-notfound.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { QuantService } from './services/quant.service'; 
+
 
 
 const appRoutes: Routes = [
@@ -47,6 +52,7 @@ const appRoutes: Routes = [
     MatInputModule,
     MatGridListModule,
     HttpClientModule,
+    AngularFireModule.initializeApp(environment.firebase),
 
     RouterModule.forRoot(
       appRoutes,
