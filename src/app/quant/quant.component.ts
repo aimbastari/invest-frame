@@ -37,7 +37,7 @@ export class QuantComponent implements OnInit{
         error => alert(error)
       )
 */
-    this.db.list('/strategies')
+    this.db.list('/strategies').snapshotChanges().subscribe(item => console.log(item) );
     
 
 

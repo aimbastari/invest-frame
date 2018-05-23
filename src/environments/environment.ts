@@ -7,7 +7,7 @@ export const environment = {
   firebase: {
     apiKey: "AIzaSyBdL7EmXciRLMPEOX7yM1bozfu9wuKycAk",
     authDomain: "invest-frame.firebaseapp.com",
-    databaseURL: "https://invest-frame.firebaseio.com",
+    databaseURL: "https://invest-frame-bdc7a.firebaseio.com/",
     projectId: "invest-frame",
     storageBucket: "invest-frame.appspot.com",
     messagingSenderId: "302056100789"

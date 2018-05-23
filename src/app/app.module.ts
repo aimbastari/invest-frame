@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule} from 'angularfire2/database';
-
+import { AngularFireDatabase } from 'angularfire2/database';
 
 import { AppComponent } from './app.component';
 import { QuantComponent } from './quant/quant.component';
@@ -60,7 +60,8 @@ const appRoutes: Routes = [
     )
   ],
   providers: [
-    QuantService
+    QuantService,
+    AngularFireDatabase
   ],
   bootstrap: [AppComponent]
 })
