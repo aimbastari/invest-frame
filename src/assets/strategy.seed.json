@@ -1,0 +1,42 @@
+[
+    {
+        "id": "0",
+        "name": "Algorithm min max",
+        "performance": "0.5",
+        "datasource" : "reuters",
+        "code": "python",
+        "symbol": "XYZ"
+    },
+    {
+        "id": "1",
+        "name": "Algorithm 2",
+        "performance": "0.6",
+        "datasource" : "bloomberg",
+        "code": "c++",
+        "symbol": "abc"
+    },
+    {
+        "id": "2",
+        "name": "Algorithm 3",
+        "performance": "0.7",
+        "datasource" : "reuters",
+        "code": "spark",
+        "symbol": "123"
+    },
+    {
+        "id": "3",
+        "name": "Algorithm 4",
+        "performance": "0.8",
+        "datasource" : "reuters",
+        "code": "python",
+        "symbol": "NNN"
+    },
+    {
+        "id": "4",
+        "name": "Algorithm 5",
+        "performance": "0.6",
+        "datasource" : "barclays",
+        "code": "python",
+        "symbol": "NNq"
+    }
+]

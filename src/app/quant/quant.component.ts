@@ -19,7 +19,7 @@ export class QuantComponent implements OnInit{
 
   constructor(private quantService: QuantService, private db: AngularFireDatabase){}
 
-  displayedColumns = ['position', 'name', 'performance', 'datasource', 'code', 'symbol'];
+  displayedColumns = ['id', 'name', 'performance', 'datasource', 'code', 'symbol'];
   dataSource = new MatTableDataSource(ELEMENT_DATA);
 
   applyFilter(filterValue: string) {
@@ -47,7 +47,7 @@ export class QuantComponent implements OnInit{
 
 export interface Element {
   name: string;
-  position: number;
+  id: number;
   performance: number;
   datasource: string;
   code: string;
@@ -55,6 +55,6 @@ export interface Element {
 }
 
 const ELEMENT_DATA: Element[] = [
-  {position: 1, name: 'Algorithm min max', performance: 1.0079,  datasource: 'bloomberg', code: 'python', symbol: 'AMN'},
-  {position: 2, name: 'Algorithm delta', performance: 1.0079,  datasource: 'reuters', code: 'c++',symbol: 'DEL'},
+  {id: 1, name: 'Algorithm min max', performance: 1.0079,  datasource: 'bloomberg', code: 'python', symbol: 'AMN'},
+  {id: 2, name: 'Algorithm delta', performance: 1.0079,  datasource: 'reuters', code: 'c++',symbol: 'DEL'},
 ];
