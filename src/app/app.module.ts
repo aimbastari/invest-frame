@@ -38,29 +38,26 @@ import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.componen
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
+import { AuthService } from "./auth.service"; 
+import { AuthGuardService } from "./auth-guard.service"; 
+
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent},
-  { path: 'products', component: ProductsComponent},
+  { path: 'login', component: LoginComponent},
   { path: 'products', component: ProductsComponent},
   { path: 'shopping-cart', component: ShoppingCartComponent},
-  { path: 'check-out', component: CheckOutComponent},
-  { path: 'my-orders', component: OrderSuccessComponent},
-  { path: 'order-success', component: OrderSuccessComponent},
-  { path: 'login', component: LoginComponent},
+
+  { path: 'check-out', component: CheckOutComponent, canActivate: [AuthGuardService]},
+  { path: 'my-orders', component: OrderSuccessComponent, canActivate: [AuthGuardService]},
+  { path: 'order-success', component: OrderSuccessComponent, canActivate: [AuthGuardService]},
+  { path: 'quant-list', component: QuantComponent, canActivate: [AuthGuardService] },
+  { path: 'quant/:id',  component: QuantDetailComponent, canActivate: [AuthGuardService] },
+  { path: 'quant',  component: QuantDetailComponent, canActivate: [AuthGuardService] },
   
-  { path: 'admin/products', component: AdminProductsComponent},
-  { path: 'admin/orders', component: AdminOrdersComponent},
+  { path: 'admin/products', component: AdminProductsComponent, canActivate: [AuthGuardService]},
+  { path: 'admin/orders', component: AdminOrdersComponent, canActivate: [AuthGuardService]},
   
-  
-  { path: 'quant-list', component: QuantComponent },
-  { path: 'quant/:id',  component: QuantDetailComponent },
-  { path: 'quant',  component: QuantDetailComponent },
-  
-  { path: '',
-    redirectTo: '/quant-list',
-    pathMatch: 'full'
-  },
   { path: '**', component: PageNotfoundComponent }
 ];
 
@@ -101,6 +98,7 @@ const appRoutes: Routes = [
     )
   ],
   providers: [
+    AuthService,
     QuantService,
     AngularFireDatabase
   ],

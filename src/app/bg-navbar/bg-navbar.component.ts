@@ -1,7 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { AngularFireAuth, User } from "angularfire2/auth";
-
-import * as firebase from 'firebase';
+import { Component } from '@angular/core';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'bg-navbar',
@@ -10,20 +8,10 @@ import * as firebase from 'firebase';
 })
 export class BgNavbarComponent  {
 
-  user: firebase.User;
-
-  constructor(private fAuth: AngularFireAuth) { 
-    //fAuth.authState();
-    fAuth.user.subscribe(user => this.user=user);
-
-  }
-
-  ngOnInit() {
-  }
+  constructor(public authService: AuthService) {}
 
   logout(){
-    console.log("inisde logout");
-    this.fAuth.auth.signOut().then(v => console.log(v));
+    this.authService.logout();
 
   }
 
