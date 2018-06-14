@@ -25,7 +25,7 @@ export class QuantComponent implements OnInit{
   applyFilter(filterValue: string) {
     filterValue = filterValue.trim(); // Remove whitespace
     filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
-    this.dataSource.filter = filterValue;
+//    this.dataSource.filter = filterValue;
   }
 
   ngOnInit(){
@@ -37,7 +37,12 @@ export class QuantComponent implements OnInit{
         error => alert(error)
       )
 */
-    this.db.list('/strategies').snapshotChanges().subscribe(item => console.log(item) );
+    this.db.list('/strategies').snapshotChanges().subscribe(
+      item => {
+        console.log(item); 
+ //       this.dataSource = new MatTableDataSource(item.values);
+    
+      });
     
 
 
